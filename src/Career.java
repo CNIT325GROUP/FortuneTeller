@@ -15,6 +15,7 @@ public class Career extends Category {
     //attributes
     boolean hasCareer;
     String careerOpinion;
+    String careerType;
     
     //methods
     public void setHasCareer (boolean hascareer) {
