@@ -26,21 +26,155 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtQuestion1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        cmbCategory = new javax.swing.JComboBox<>();
+        lblRelationshipType = new javax.swing.JLabel();
+        cmbRelationshipType = new javax.swing.JComboBox<>();
+        lblQuestion1 = new javax.swing.JLabel();
+        txtName1 = new javax.swing.JTextField();
+        lblQuestion2 = new javax.swing.JLabel();
+        txtQuestion2 = new javax.swing.JTextField();
+        lblQuestion3 = new javax.swing.JLabel();
+        txtQuestion3 = new javax.swing.JTextField();
+        btnGetFortune = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(119, 300));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
+
+        jLabel1.setText("Enter Name:");
+
+        txtQuestion1.setName("txtQuestion1"); // NOI18N
+
+        jLabel2.setText("Pick a category:");
+
+        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Career", "Education", "Relationships", "Health", "Hobbies" }));
+        cmbCategory.setName("cmbCategory"); // NOI18N
+        cmbCategory.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCategoryItemStateChanged(evt);
+            }
+        });
+
+        lblRelationshipType.setText("Relationship Type:");
+
+        cmbRelationshipType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Family", "Friends", "Romance" }));
+        cmbRelationshipType.setName("cmbCategory"); // NOI18N
+
+        lblQuestion1.setText("jLabel3");
+
+        txtName1.setName("txtName"); // NOI18N
+
+        lblQuestion2.setText("jLabel3");
+
+        txtQuestion2.setName("txtQuestion1"); // NOI18N
+
+        lblQuestion3.setText("jLabel3");
+
+        txtQuestion3.setName("txtQuestion1"); // NOI18N
+
+        btnGetFortune.setText("Get Fortune!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblQuestion1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtQuestion1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRelationshipType)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbRelationshipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbCategory, 0, 126, Short.MAX_VALUE)
+                                    .addComponent(txtName1)))
+                            .addComponent(txtQuestion2)
+                            .addComponent(txtQuestion3)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblQuestion2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblQuestion3, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(159, 159, 159)))
+                        .addGap(19, 19, 19))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(btnGetFortune)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRelationshipType)
+                    .addComponent(cmbRelationshipType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(lblQuestion1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtQuestion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblQuestion2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtQuestion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblQuestion3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtQuestion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(btnGetFortune)
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCategoryItemStateChanged
+        if (cmbCategory.getSelectedItem().toString().equals("Relationships")) {
+            lblRelationshipType.setVisible(true);
+            cmbRelationshipType.setVisible(true);
+        }
+        else {
+            lblRelationshipType.setVisible(false);
+            cmbRelationshipType.setVisible(false);
+        }
+    }//GEN-LAST:event_cmbCategoryItemStateChanged
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        lblRelationshipType.setVisible(false);
+        cmbRelationshipType.setVisible(false);
+        lblQuestion1.setVisible(false);
+        lblQuestion2.setVisible(false);
+        lblQuestion3.setVisible(false);
+        txtQuestion1.setVisible(false);
+        txtQuestion2.setVisible(false);
+        txtQuestion3.setVisible(false);
+        btnGetFortune.setVisible(false);
+        cmbCategory.setSelectedIndex(-1);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -78,5 +212,18 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGetFortune;
+    private javax.swing.JComboBox<String> cmbCategory;
+    private javax.swing.JComboBox<String> cmbRelationshipType;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblQuestion1;
+    private javax.swing.JLabel lblQuestion2;
+    private javax.swing.JLabel lblQuestion3;
+    private javax.swing.JLabel lblRelationshipType;
+    private javax.swing.JTextField txtName1;
+    private javax.swing.JTextField txtQuestion1;
+    private javax.swing.JTextField txtQuestion2;
+    private javax.swing.JTextField txtQuestion3;
     // End of variables declaration//GEN-END:variables
 }
