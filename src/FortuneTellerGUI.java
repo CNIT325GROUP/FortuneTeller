@@ -1,5 +1,6 @@
 
 import java.util.HashSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -32,8 +33,23 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
      */
     public FortuneTellerGUI() {
         initComponents();
+        this.setLocationRelativeTo(null);        
     }
 
+    public void setVisibilityAll() {
+        lblQuestion1.setVisible(true);
+        lblQuestion2.setVisible(true);
+        txtQuestion1.setVisible(true);
+        txtQuestion2.setVisible(true);  
+        btnEnter.setVisible(true);      
+    }
+    
+    public void setVisibilityQ1() {
+        lblQuestion1.setVisible(true);
+        txtQuestion1.setVisible(true);
+        btnEnter.setVisible(true);       
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -145,6 +161,11 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
         jMenu2.add(menuItemRandomFortune);
 
         menuItemHoroscope.setText("Get Horoscope");
+        menuItemHoroscope.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemHoroscopeActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuItemHoroscope);
 
         jMenuBar1.add(jMenu2);
@@ -156,29 +177,30 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblQuestion1)
-                    .addComponent(lblQuestion2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRelationshipType)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName)
-                            .addComponent(cmbCategory, 0, 170, Short.MAX_VALUE)
-                            .addComponent(cmbRelationshipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(txtQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblQuestion1)
+                            .addComponent(lblQuestion2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRelationshipType)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtName)
+                                    .addComponent(cmbCategory, 0, 170, Short.MAX_VALUE)
+                                    .addComponent(cmbRelationshipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(btnEnter)
+                            .addComponent(btnGetFortune))))
                 .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnEnter)
-                    .addComponent(btnGetFortune))
-                .addGap(120, 120, 120))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,44 +236,33 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCategoryItemStateChanged
+        
         if (cmbCategory.getSelectedItem() != null) {
            category = cmbCategory.getSelectedItem().toString();
         
             switch (category) {
                 case "Career" :
-                    //is there a better way to do this than repeat these 4 lines of code
-                    //for every case statement??????
-                    lblQuestion1.setVisible(true);
-                    lblQuestion2.setVisible(true);
-                    txtQuestion1.setVisible(true);
-                    txtQuestion2.setVisible(true);
+                    setVisibilityAll();
                     lblQuestion1.setText("Do you currently have a career? (yes/no)");
                     lblQuestion2.setText("If so, what field is your career in?");
                     break;
                 case "Education" :
-                    lblQuestion1.setVisible(true);
-                    lblQuestion2.setVisible(true);
-                    txtQuestion1.setVisible(true);
-                    txtQuestion2.setVisible(true);
+                    setVisibilityAll();
                     lblQuestion1.setText("Are you a student? (yes/no)");
                     lblQuestion2.setText("What is your school year? (1/2/3/4)");
                     break;
-                case "Relationships" : 
+                case "Relationships" :
                     lblRelationshipType.setVisible(true);
                     cmbRelationshipType.setVisible(true);
                     cmbRelationshipType.setSelectedIndex(-1);
                     break;
                 case "Health" :
-                    lblQuestion1.setVisible(true);
-                    lblQuestion2.setVisible(true);
-                    txtQuestion1.setVisible(true);
-                    txtQuestion2.setVisible(true);
+                    setVisibilityAll();
                     lblQuestion1.setText("Do you eat healthily? (yes/no)");
                     lblQuestion2.setText("Do you exercise regularly? (yes/no)");
                     break;
                 case "Hobbies" :
-                    lblQuestion1.setVisible(true);
-                    txtQuestion1.setVisible(true);
+                    setVisibilityQ1();
                     lblQuestion1.setText("What is your favorite hobby?");
                     break;
             } 
@@ -267,6 +278,7 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
         txtQuestion2.setVisible(false);
         btnGetFortune.setVisible(false);
         cmbCategory.setSelectedIndex(-1);
+        btnEnter.setVisible(false);        
     }//GEN-LAST:event_formWindowActivated
 
     private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExitActionPerformed
@@ -283,6 +295,7 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
         txtQuestion1.setVisible(false);
         txtQuestion2.setVisible(false);
         btnGetFortune.setVisible(false);
+        btnEnter.setVisible(false);
     }//GEN-LAST:event_menuItemRetryActionPerformed
 
     private void cmbRelationshipTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbRelationshipTypeItemStateChanged
@@ -291,23 +304,16 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
 
             switch (relationshipType) {
                 case "Family" :
-                    lblQuestion1.setVisible(true);
-                    txtQuestion1.setVisible(true);
+                    setVisibilityQ1();
                     lblQuestion1.setText("Do you have siblings? (yes/no)");
                     break;
                 case "Friends" :
-                    lblQuestion1.setVisible(true);
-                    lblQuestion2.setVisible(true);
-                    txtQuestion1.setVisible(true);
-                    txtQuestion2.setVisible(true);
+                    setVisibilityAll();
                     lblQuestion1.setText("Are you a social person? (yes/no)");
                     lblQuestion2.setText("Do you have a best friend? (yes/no)");
                     break;
                 case "Romance" :
-                    lblQuestion1.setVisible(true);
-                    lblQuestion2.setVisible(true);
-                    txtQuestion1.setVisible(true);
-                    txtQuestion2.setVisible(true);
+                    setVisibilityAll();
                     lblQuestion1.setText("What is your relationship status? (single/taken)");
                     lblQuestion2.setText("Would you describe yourself as a romantic? (yes/no)");
                     break;
@@ -406,13 +412,13 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
 
     private void btnGetFortuneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetFortuneActionPerformed
         switch (category) {
-            //implement case statements for each category
+            //TODO implement case statements for each category
             case "Relationships" :  
                 switch (relationshipType) {
-                    //implement case statements for each relationship type
+                    //TODO implement case statements for each relationship type
                     case "Family" :
                         if (family.hasSiblings) {
-                            //add relevant fortunes to arraylist relating to class attribute                            
+                            //TODO add relevant fortunes to arraylist relating to class attribute                            
                             family.familyfortunes.add(0, "You will have a nephew.");
                             //FUTURE IMPLEMENTATION: could use IRandom here to randomize 
                             //what fortune is given instead of hard-coding an index (family.familyfortunes.get(0))                           
@@ -421,6 +427,12 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                 }
         }
     }//GEN-LAST:event_btnGetFortuneActionPerformed
+
+    private void menuItemHoroscopeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHoroscopeActionPerformed
+        JFrame mForm = new HoroscopeGUI();
+        mForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mForm.setVisible(true);
+    }//GEN-LAST:event_menuItemHoroscopeActionPerformed
 
     /**
      * @param args the command line arguments
