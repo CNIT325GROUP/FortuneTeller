@@ -31,7 +31,11 @@ public class FortuneTeller implements IRandom {
         return random;
     };
     public static void main(String[] args) {
-        JFrame mForm = new FortuneTellerGUI();
+//        JFrame mForm = new FortuneTellerGUI();
+//        mForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        mForm.setVisible(true);
+
+        JFrame mForm = new LoginGUI();
         mForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mForm.setVisible(true);
     }
