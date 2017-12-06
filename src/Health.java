@@ -15,8 +15,7 @@ import java.util.*;
 public class Health extends Category {
     //attributes 
     boolean eatsWell;
-    String Exercise;
-    String Stamina;
+    boolean doesExercise;
     
     //methods
     
@@ -26,14 +25,11 @@ public class Health extends Category {
     public boolean getEatsWell () {
         return eatsWell;
     }
-    public void setExercise (String exercise) {
-        Exercise = exercise;
+    public void setExercise (boolean exercise) {
+        doesExercise = exercise;
     }
-    public String getExercise () {
-        return Exercise;
-    }
-    public void setStamina (String stamina) {
-        Stamina = stamina;
+    public boolean getExercise () {
+        return doesExercise;
     }
     
     //create arraylist for health and add to it
