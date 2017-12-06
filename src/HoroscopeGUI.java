@@ -39,6 +39,11 @@ public class HoroscopeGUI extends javax.swing.JFrame {
         jLabel1.setText("Select your sign:");
 
         cmbSign.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn" }));
+        cmbSign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSignActionPerformed(evt);
+            }
+        });
 
         btnHoroscope.setText("Get Horoscope");
         btnHoroscope.addActionListener(new java.awt.event.ActionListener() {
@@ -57,9 +62,9 @@ public class HoroscopeGUI extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbSign, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbSign, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(85, 85, 85)
                         .addComponent(btnHoroscope)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -70,9 +75,9 @@ public class HoroscopeGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cmbSign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(btnHoroscope)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -93,6 +98,10 @@ public class HoroscopeGUI extends javax.swing.JFrame {
                         + "\nkeep it going.", sign + " Horoscope", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnHoroscopeActionPerformed
+
+    private void cmbSignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSignActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSignActionPerformed
 
     /**
      * @param args the command line arguments
