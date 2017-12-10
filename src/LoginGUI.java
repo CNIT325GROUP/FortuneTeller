@@ -38,6 +38,11 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabel1.setText("What is the secret password?");
 
         btnEnter.setText("Enter");
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,6 +75,21 @@ public class LoginGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        // TODO add your handling code here:
+        
+        //***change later --> will be after the user has properly logged in
+        /*
+        //create FortuneTellerGUI
+        new FortuneTellerGUI().setVisible(true);
+        //destroy LoginGUI
+        this.dispose();
+        */
+        
+        
+        
+    }//GEN-LAST:event_btnEnterActionPerformed
 
     /**
      * @param args the command line arguments
