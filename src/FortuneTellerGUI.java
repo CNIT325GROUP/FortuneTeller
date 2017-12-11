@@ -426,6 +426,7 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                         }                        
                 }
         }
+        System.out.println ("Have I finally figured it out?");
     }//GEN-LAST:event_btnGetFortuneActionPerformed
 
     private void menuItemHoroscopeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHoroscopeActionPerformed
