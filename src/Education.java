@@ -12,7 +12,7 @@ import java.util.*;
 public class Education {
     //attributes
     boolean isStudent;
-    int schoolYear;
+    String schoolYear;
     
     //methods
     public void setIsStudent (boolean isstudent) {
@@ -21,10 +21,10 @@ public class Education {
     public boolean getIsStudent () {
         return isStudent;
     }
-    public void setSchoolYear (int schoolyear) {
+    public void setSchoolYear (String schoolyear) {
         schoolYear = schoolyear;
     }
-    public int getSchoolYear () {
+    public String getSchoolYear () {
         return schoolYear;
     }
     
