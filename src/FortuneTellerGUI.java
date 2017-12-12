@@ -434,6 +434,8 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, family.getRandomFortune(familyfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                             
                         }
+                        
+                        break;
                     case "Romance" :
                         if (romance.isRomantic) {
                             ArrayList <String> romanticfortunes = new ArrayList <> ();
@@ -449,22 +451,29 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                             romancefortunes.add ("There will be a happy romance for you shortly.");
                             romancefortunes.add ("You will be successful in love.");
                             romancefortunes.add ("You will find your husband in college.");
-                            romancefortunes.add ("You will be single forever. ");
+                            romancefortunes.add ("You won't be happy even if you are in a relationship.");
                             romancefortunes.add ("A good friendship is often more important than a passionate romance");
                             romancefortunes.add ("Your friend may turn out to be more than that.");
-                            romancefortunes.add ("Your partner will tell you something important in the near future."); 
+                            romancefortunes.add ("Your soon-to-be partner will tell you something important in the near future."); 
                             JOptionPane.showMessageDialog (null, romance.getRandomFortune (romancefortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                         }
+                        break;
 
                     case "Friends" :
-                        if (friend.isSocial) {
-                            ArrayList <String> socialfortunes = new ArrayList <> ();
-                            socialfortunes.add("Your social life is about to flourish.");
-                            socialfortunes.add("You will connect with the right network of people.");
-                            socialfortunes.add ("Your social network will bring prosperity to your future.");
-                            socialfortunes.add ("Your social network is holding you back.");
-                            socialfortunes.add ("Your social connections are going to be cut off.");
-                            JOptionPane.showMessageDialog (null, friend.getRandomFortune (socialfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                        if (friend.isSocial && friend.hasBestFriend) {
+                            ArrayList <String> fortunes = new ArrayList <> ();
+                            fortunes.add("Your social life is about to flourish.");
+                            fortunes.add("You will connect with the right network of people.");
+                            fortunes.add ("Your social network will bring prosperity to your future.");
+                            fortunes.add ("Your social network is holding you back.");
+                            fortunes.add ("Your social connections are going to be cut off.");
+                            fortunes.add ("Your best friend is jealous of you.");
+                            fortunes.add ("You're keeping your best friend closer...that may be a good thing for you.");
+                            fortunes.add ("Your best friend looks up to you as a role model.");
+                            fortunes.add ("You're not your best friend's best friend.");
+                            fortunes.add ("Your best friend and you are like peas in a pod.");
+                            fortunes.add ("Your best friend is the perfect friend for you.");
+                            JOptionPane.showMessageDialog (null, friend.getRandomFortune (fortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                         }
                         else
                         {
@@ -485,36 +494,9 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                             friendfortunes.add ("Everybody feels lucky for having you as a friend.");
                             JOptionPane.showMessageDialog (null, friend.getRandomFortune (friendfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);                            
                         }
-                        if (friend.hasBestFriend) {
-                            ArrayList <String> bfffortunes = new ArrayList <> ();
-                            bfffortunes.add ("Your best friend is jealous of you.");
-                            bfffortunes.add ("You're keeping your best friend closer...that may be a good thing for you.");
-                            bfffortunes.add ("Your best friend looks up to you as a role model.");
-                            bfffortunes.add ("You're not your best friend's best friend.");
-                            bfffortunes.add ("Your best friend and you are like peas in a pod.");
-                            bfffortunes.add ("Your best friend is the perfect friend for you.");
-                            JOptionPane.showMessageDialog (null, friend.getRandomFortune (bfffortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
-                        }
-                        else
-                        {
-                            ArrayList <String> friendfortunes = new ArrayList <> ();
-                            friendfortunes.add ("A friend asks only for your time not your money.");
-                            friendfortunes.add ("A chance meeting opens new doors to success and friendship.");
-                            friendfortunes.add ("A stranger is a friend you have not spoken to yet.");
-                            friendfortunes.add ("You will always be surrounded by true friends.");
-                            friendfortunes.add ("Prosperity makes friends and adversity tries them.");
-                            friendfortunes.add ("The worst of friends may become the worst of enemies, but you will always find yourself hanging on.");
-                            friendfortunes.add ("Friendship is an ocean that you cannot see the bottom.");
-                            friendfortunes.add ("Ask a friend to join you on your next voyage.");
-                            friendfortunes.add ("Be a good friend and a fair enemy.");
-                            friendfortunes.add ("Movies have pause buttons; friends do not.");
-                            friendfortunes.add ("Old friends make best friends.");
-                            friendfortunes.add ("A new friend helps you break out of an old routine.");
-                            friendfortunes.add ("You will soon be surrounded by good friends and laughter.");
-                            friendfortunes.add ("Everybody feels lucky for having you as a friend.");
-                            JOptionPane.showMessageDialog (null, friend.getRandomFortune (friendfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
-                        }
+                        break;
         }
+                break;
             case "Career" : 
                 if (career.hasCareer) {
                         ArrayList <String> career_fortunes = new ArrayList <> ();
@@ -538,6 +520,7 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                     careerfortunes.add ("It may be time to look for a career.");
                     JOptionPane.showMessageDialog (null, career.getRandomFortune (careerfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                 }
+                break;
             case "Education" : 
 		if (education.isStudent) {
                     ArrayList <String> studentfortunes = new ArrayList <> ();
@@ -561,15 +544,32 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                     educationfortunes.add ("It feels good to not be in school."); 
                     JOptionPane.showMessageDialog (null, education.getRandomFortune (educationfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                 }
+                break;
             case "Health" :
-		if (health.eatsWell) {
-                    ArrayList <String> eatfortunes = new ArrayList <> ();
-                    eatfortunes.add("Do not forget your green veggies.");
-                    eatfortunes.add ("Your body is thanking you for the healthy-eating habits.");
-                    eatfortunes.add("Getting your vitamins and minerals from your food is much better than getting it from a pill.");
-                    eatfortunes.add("Add more color to your plate");
-                    eatfortunes.add ("Your heart is thanking you.");
-                    JOptionPane.showMessageDialog (null, health.getRandomFortune (eatfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+		if (health.eatsWell && health.doesExercise) {
+                    ArrayList <String> fortunes = new ArrayList <> ();
+                    fortunes.add("Do not forget your green veggies.");
+                    fortunes.add ("Your body is thanking you for the healthy-eating habits.");
+                    fortunes.add("Getting your vitamins and minerals from your food is much better than getting it from a pill.");
+                    fortunes.add("Add more color to your plate");
+                    fortunes.add ("Your heart is thanking you.");
+                    fortunes.add ("Good health will be yours for a long time.");
+                    fortunes.add ("Rest has a peaceful effect on your physical and emotional health.");
+                    fortunes.add ("The secret of staying young is good health and lying about your age.");
+                    fortunes.add ("You will enjoy good health, you will be surrounded by luxury.");
+                    fortunes.add ("Travelling more often is important for your health and happiness.");
+                    fortunes.add ("You need to go to the Co-Rec and work out to improve your health.");
+                    fortunes.add ("Begin cooking more food at home instead of going out.");
+                    fortunes.add ("A burger never hurt anyone. Did it?");
+                    fortunes.add ("An apple a day keeps the doctor away... they say.");
+                    fortunes.add ("It is time for a new exercise routine");
+                    fortunes.add ("Weights build muscle.");
+                    fortunes.add ("You are starting to slack off. You need to be dedicated to exercisng regularly.");
+                    fortunes.add ("It is never a good idea to put too much strain on your body.");
+                    fortunes.add ("Stretching before and after exercising are just as important as exercising.");
+                    fortunes.add ("It may be time to get a trainer (or find a new one).");
+                    fortunes.add ("Show those gains off.");
+                    JOptionPane.showMessageDialog (null, health.getRandomFortune (fortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                 }
                 else
                 {
@@ -585,29 +585,7 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                     healthfortunes.add ("An apple a day keeps the doctor away... they say.");
                     JOptionPane.showMessageDialog (null, health.getRandomFortune (healthfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                 }
-                if (health.doesExercise) {
-                    ArrayList <String> exercisefortunes = new ArrayList <> ();
-                    exercisefortunes.add ("It is time for a new exercise routine");
-                    exercisefortunes.add ("Weights build muscle.");
-                    exercisefortunes.add ("You are starting to slack off. You need to be dedicated to exercisng regularly.");
-                    exercisefortunes.add ("It is never a good idea to put too much strain on your body.");
-                    exercisefortunes.add ("Stretching before and after exercising are just as important as exercising.");
-                    exercisefortunes.add ("It may be time to get a trainer (or find a new one).");
-                    exercisefortunes.add ("Show those gains off.");
-                    JOptionPane.showMessageDialog (null, health.getRandomFortune (exercisefortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
-                }
-                else
-                {
-                    ArrayList <String> healthfortunes = new ArrayList <> ();
-                    healthfortunes.add ("Good health will be yours for a long time.");
-                    healthfortunes.add ("Rest has a peaceful effect on your physical and emotional health.");
-                    healthfortunes.add ("The secret of staying young is good health and lying about your age.");
-                    healthfortunes.add ("You will enjoy good health, you will be surrounded by luxury.");
-                    healthfortunes.add ("Travelling more often is important for your health and happiness.");
-                    healthfortunes.add ("You need to go to the Co-Rec and work out to improve your health.");
-                    healthfortunes.add ("Begin cooking more food at home instead of going out.");
-                    JOptionPane.showMessageDialog (null, health.getRandomFortune (healthfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
-                }
+                break;
             case "Hobbies" :
 		{
                     ArrayList <String> hobbiesfortunes = new ArrayList <> ();
@@ -618,6 +596,7 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                     hobbiesfortunes.add ("You will gain valuable skills from doing what you love.");
                     JOptionPane.showMessageDialog (null, hobbies.getRandomFortune (hobbiesfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                 }
+                break;
         }
     }//GEN-LAST:event_btnGetFortuneActionPerformed
 
