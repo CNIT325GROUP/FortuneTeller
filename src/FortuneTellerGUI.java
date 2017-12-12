@@ -419,14 +419,44 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
                     case "Family" :
                         if (family.hasSiblings) {
                             //TODO add relevant fortunes to arraylist relating to class attribute                            
-                            family.familyfortunes.add(0, "You will have a nephew.");
+                            //family.familyfortunes.add(0, "You will have a nephew.");
                             //FUTURE IMPLEMENTATION: could use IRandom here to randomize 
                             //what fortune is given instead of hard-coding an index (family.familyfortunes.get(0))                           
-                            JOptionPane.showMessageDialog(null, family.familyfortunes.get(0), "Fortune", JOptionPane.PLAIN_MESSAGE);
-                        }                        
+                            JOptionPane.showMessageDialog(null, family.getRandomFortune(family.familyfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                        }  
+                    case "Romance" :
+                        if (romance.isRomantic) {
+                            JOptionPane.showMessageDialog (null, romance.getRandomFortune (romance.romancefortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                        }
+
+                    case "Friends" :
+                        if (friend.isSocial) {
+                            JOptionPane.showMessageDialog (null, friend.getRandomFortune (friend.friendfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                        }
+                        if (friend.hasBestFriend) {
+                            JOptionPane.showMessageDialog (null, friend.getRandomFortune (friend.friendfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                        }
+        }
+            case "Career" : 
+                if (career.hasCareer) {
+			JOptionPane.showMessageDialog (null, career.getRandomFortune (career.careerfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                }
+            case "Education" : 
+		if (education.isStudent) {
+			JOptionPane.showMessageDialog (null, education.getRandomFortune (education.educationfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                }
+            case "Health" :
+		if (health.eatsWell) {
+			JOptionPane.showMessageDialog (null, health.getRandomFortune (health.healthfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                }
+                if (health.doesExercise) {
+                    JOptionPane.showMessageDialog (null, health.getRandomFortune (health.healthfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
+                }
+            case "Hobbies" :
+		{
+                    JOptionPane.showMessageDialog (null, hobbies.getRandomFortune (health.healthfortunes), "Fortune", JOptionPane.PLAIN_MESSAGE);
                 }
         }
-        System.out.println ("Have I finally figured it out?");
     }//GEN-LAST:event_btnGetFortuneActionPerformed
 
     private void menuItemHoroscopeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHoroscopeActionPerformed

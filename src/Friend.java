@@ -9,11 +9,11 @@ import java.util.*;
  *
  * @author Jaz
  */
-public class Friend {
+public class Friend extends Relationship implements IRandom {
     //attributes
     boolean isSocial;
     boolean hasBestFriend;
-    
+    public static ArrayList <String> friendfortunes = new ArrayList <> ();
     //methods
     public void setIsSocial (boolean issocial) {
         isSocial = issocial;
@@ -27,10 +27,15 @@ public class Friend {
     public boolean getHasBestFriend () {
         return hasBestFriend;
     }
-    
+    //interface methods
+public String getRandomFortune (java.util.ArrayList<String> friendFortunes) {
+        friendfortunes = friendFortunes;
+        int index = new Random().nextInt(friendfortunes.size());
+        String random = friendfortunes.get(index);  
+        return random;
+    };    
     //create arraylist of fortunes
     public static void main (String [] args) {
-        ArrayList <String> friendfortunes = new ArrayList <> ();
         friendfortunes.add ("A friend asks only for your time not your money.");
         friendfortunes.add ("A chance meeting opens new doors to success and friendship.");
         friendfortunes.add ("A stranger is a friend you have not spoken to yet.");

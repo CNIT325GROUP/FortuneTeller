@@ -9,11 +9,11 @@ import java.util.*;
  *
  * @author Jaz
  */
-public class Education {
+public class Education extends Category implements IRandom {
     //attributes
     boolean isStudent;
     String schoolYear;
-    
+    public static ArrayList <String> educationfortunes = new ArrayList <> ();
     //methods
     public void setIsStudent (boolean isstudent) {
         isStudent = isstudent;
@@ -27,10 +27,17 @@ public class Education {
     public String getSchoolYear () {
         return schoolYear;
     }
-    
+    //interface method
+    public String getRandomFortune (java.util.ArrayList<String> educationFortunes) {
+        educationfortunes = educationFortunes;
+        int index = new Random().nextInt(educationfortunes.size());
+        String random = educationfortunes.get(index);  
+        return random;
+    };       
+
     //create arraylist of fortunes
     public static void main (String [] args) {
-        ArrayList <String> educationfortunes = new ArrayList <> ();
+  
         educationfortunes.add ("Your loans will suddenly disappear.");
         educationfortunes.add ("You will not graduate in 4 years.");
         educationfortunes.add ("You will change your major two more times before you find the one that is right for you.");

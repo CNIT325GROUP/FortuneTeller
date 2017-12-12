@@ -9,10 +9,11 @@ import java.util.*;
  *
  * @author Jaz
  */
-public class Romance {
+public class Romance extends Relationship implements IRandom{
     //attributes
     String relationshipStatus;
     boolean isRomantic;
+    public static ArrayList <String> romancefortunes = new ArrayList <> ();
     
     //methods
     public void setRelationshipStatus (String relationshipstatus) {
@@ -27,10 +28,17 @@ public class Romance {
     public boolean getIsRomantic () {
         return isRomantic;
     }
+    public String getRandomFortune (java.util.ArrayList<String> romanceFortunes) {
+        romancefortunes = romanceFortunes;
+        int index = new Random().nextInt(romancefortunes.size());
+        String random = romancefortunes.get(index);  
+        return random;
+    };    
+    
     
     //create arraylist of fortunes
     public static void main (String [] args) {
-        ArrayList <String> romancefortunes = new ArrayList <> ();
+    
         romancefortunes.add ("There will be a happy romance for you shortly.");
         romancefortunes.add ("You will be successful in love.");
         romancefortunes.add ("You will find your husband in college.");

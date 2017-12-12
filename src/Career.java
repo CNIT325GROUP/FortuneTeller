@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Jaz
  */
-public class Career extends Category {
+public class Career extends Category implements IRandom {
     //attributes
     boolean hasCareer;
     String careerType;
@@ -30,6 +31,14 @@ public class Career extends Category {
     public String getCareerType () {
         return careerType;
     }
+    
+    //interface method
+    public String getRandomFortune (java.util.ArrayList<String> careerFortunes) {
+        careerfortunes = careerFortunes;
+        int index = new Random().nextInt(careerfortunes.size());
+        String random = careerfortunes.get(index);  
+        return random;
+    };       
     
     //create array of fortunes and add fortunes
     public static void main (String [] args) {        

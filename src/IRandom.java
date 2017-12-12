@@ -15,5 +15,5 @@ import java.util.Random;
 public interface IRandom {
         
     //get random string from string array
-    public String getRandomFortune (String [] arrayList);
+    public String getRandomFortune (java.util.ArrayList<String> arrayList);
 }

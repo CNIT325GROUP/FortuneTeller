@@ -12,10 +12,12 @@ import java.util.*;
  *
  * @author Jaz
  */
-public class Health extends Category {
+public class Health extends Category implements IRandom {
     //attributes 
     boolean eatsWell;
     boolean doesExercise;
+    public static ArrayList <String> healthfortunes = new ArrayList <> ();
+    
     
     //methods
     
@@ -31,10 +33,16 @@ public class Health extends Category {
     public boolean getExercise () {
         return doesExercise;
     }
+    //interface method
+    public String getRandomFortune (java.util.ArrayList<String> healthFortunes) {
+        healthfortunes = healthFortunes;
+        int index = new Random().nextInt(healthfortunes.size());
+        String random = healthfortunes.get(index);  
+        return random;
+    };     
     
     //create arraylist for health and add to it
     public static void main (String [] args) {
-        ArrayList <String> healthfortunes = new ArrayList<>();
         healthfortunes.add ("Good health will be yours for a long time.");
         healthfortunes.add ("Rest has a peaceful effect on your physical and emotional health.");
         healthfortunes.add ("The secret of staying young is good health and lying about your age.");

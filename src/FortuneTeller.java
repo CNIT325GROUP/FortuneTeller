@@ -15,7 +15,7 @@ import java.util.*;
  *
  * @author Jaz
  */
-public class FortuneTeller implements IRandom {
+public class FortuneTeller  {
     //attributes
     String tellerLevel;
     
@@ -90,12 +90,7 @@ public class FortuneTeller implements IRandom {
         }
     }//end startServer()
     
-    //interface IRandom methods
-    public String getRandomFortune (String [] arrayList) {
-        int index = new Random().nextInt(arrayList.length);
-        String random = (arrayList [index]);  
-        return random;
-    };
+   
     public static void main(String[] args) {
         //JFrame mForm = new FortuneTellerGUI();
         //mForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
