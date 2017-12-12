@@ -80,12 +80,12 @@ public class LoginGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //***change later --> will be after the user has properly logged in
-        /*
+        
         //create FortuneTellerGUI
         new FortuneTellerGUI().setVisible(true);
         //destroy LoginGUI
         this.dispose();
-        */
+        
         
         
         

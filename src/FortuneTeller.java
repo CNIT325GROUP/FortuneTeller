@@ -35,7 +35,6 @@ public class FortuneTeller implements IRandom {
             System.out.println("Server Started:");
             boolean over = false;
             
-            System.out.println("hello world");
             
             //put in a loop that keeps running
             while(!over)
