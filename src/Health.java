@@ -39,16 +39,5 @@ public class Health extends Category implements IRandom {
         int index = new Random().nextInt(healthfortunes.size());
         String random = healthfortunes.get(index);  
         return random;
-    };     
-    
-    //create arraylist for health and add to it
-    public static void main (String [] args) {
-        healthfortunes.add ("Good health will be yours for a long time.");
-        healthfortunes.add ("Rest has a peaceful effect on your physical and emotional health.");
-        healthfortunes.add ("The secret of staying young is good health and lying about your age.");
-        healthfortunes.add ("You will enjoy good health, you will be surrounded by luxury.");
-        healthfortunes.add ("Travelling more often is important for your health and happiness.");
-        healthfortunes.add ("You need to go to the Co-Rec and work out to improve your health.");
-        healthfortunes.add ("Begin cooking more food at home instead of going out.");          
-    }
+    };  
 }

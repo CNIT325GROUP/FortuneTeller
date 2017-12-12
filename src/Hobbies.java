@@ -27,14 +27,5 @@ public class Hobbies extends Category implements IRandom {
         int index = new Random().nextInt(hobbiesfortunes.size());
         String random = hobbiesfortunes.get(index);  
         return random;
-    };     
-    
-    //create arraylist of fortunes
-    public static void main (String [] args) {
-        hobbiesfortunes.add ("You will be given the chance to take part in an exciting adventure.");
-        hobbiesfortunes.add ("To make your dreams real, first you need to have them.");
-        hobbiesfortunes.add ("Your favorite activity will bring you financial prosperity.");
-        hobbiesfortunes.add ("You're wasting your time investing in that hobby. ");
-        hobbiesfortunes.add ("You will gain valuable skills from doing what you love.");
-    }
+    }; 
 }

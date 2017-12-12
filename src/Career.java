@@ -38,13 +38,5 @@ public class Career extends Category implements IRandom {
         int index = new Random().nextInt(careerfortunes.size());
         String random = careerfortunes.get(index);  
         return random;
-    };       
-    
-    //create array of fortunes and add fortunes
-    public static void main (String [] args) {        
-        careerfortunes.add ("You will always be successful in your professional career.");
-        careerfortunes.add ("The big issues are work, career, or status right now.");
-        careerfortunes.add ("The possibility of a career change is near.");
-        careerfortunes.add ("You will become the best of whatever you choose.");
-    }
+    };
 }

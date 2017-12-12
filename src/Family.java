@@ -28,14 +28,4 @@ public class Family extends Relationship implements IRandom {
         String random = familyfortunes.get(index);  
         return random;
     };
-    
-    //create an arraylist of fortunes
-    public static void main (String [] args) {
-        
-        familyfortunes.add("Don’t worry about the stock market. Invest in family.");
-        familyfortunes.add("Your family has your best interests in mind.");
-        familyfortunes.add("You are a valuable asset to your family. ");
-        familyfortunes.add("Your family hates you. Your family has its difficulty. "); 
-    }
-
 }

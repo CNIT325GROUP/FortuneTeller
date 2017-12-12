@@ -34,17 +34,4 @@ public class Romance extends Relationship implements IRandom{
         String random = romancefortunes.get(index);  
         return random;
     };    
-    
-    
-    //create arraylist of fortunes
-    public static void main (String [] args) {
-    
-        romancefortunes.add ("There will be a happy romance for you shortly.");
-        romancefortunes.add ("You will be successful in love.");
-        romancefortunes.add ("You will find your husband in college.");
-        romancefortunes.add ("You will be single forever. ");
-        romancefortunes.add ("A good friendship is often more important than a passionate romance");
-        romancefortunes.add ("Your friend may turn out to be more than that.");
-        romancefortunes.add ("Your partner will tell you something important in the near future.");    
-    }
 }

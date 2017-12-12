@@ -33,15 +33,5 @@ public class Education extends Category implements IRandom {
         int index = new Random().nextInt(educationfortunes.size());
         String random = educationfortunes.get(index);  
         return random;
-    };       
-
-    //create arraylist of fortunes
-    public static void main (String [] args) {
-  
-        educationfortunes.add ("Your loans will suddenly disappear.");
-        educationfortunes.add ("You will not graduate in 4 years.");
-        educationfortunes.add ("You will change your major two more times before you find the one that is right for you.");
-        educationfortunes.add ("You will go to graduate school.");
-        educationfortunes.add ("Your major is not the best choice for you. ");        
-    }
+    }; 
 }
