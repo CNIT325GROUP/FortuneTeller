@@ -1,6 +1,12 @@
 
 import javax.swing.JOptionPane;
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +18,24 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class HoroscopeGUI extends javax.swing.JFrame {
+
+
+    public static void getHoroscopeTitle() throws IOException
+    {
+        //https://www.horoscope.com/us/index.aspx
+
+        Document doc = Jsoup.connect("https://www.horoscope.com/us/index.aspx").get();
+
+        Element content = doc.select("div.horoscope-content").first();
+
+        Elements stuff = content.getElementsByTag("p");
+
+        String text = stuff.text();
+
+        System.out.println(text);
+
+
+    }
 
     /**
      * Creates new form HoroscopeGUI
@@ -85,20 +109,30 @@ public class HoroscopeGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHoroscopeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoroscopeActionPerformed
-        
-        String sign = cmbSign.getSelectedItem().toString(); 
-        
-        switch (sign) {
+
+        try {
+            getHoroscopeTitle();
+        }catch(IOException ex)
+        {
+            Logger.getLogger(HoroscopeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+            /*String sign = cmbSign.getSelectedItem().toString();
+
+            switch (sign) {
             //TODO implement the rest of the signs
             //TODO implement API
             case "Pisces":
-                JOptionPane.showMessageDialog(null, "Tension between you and a business partner could "
-                        + "have you doubting \nyour professional future in the current situation. Don't "
-                        + "\nwaste too much time worrying about it. You may not be aware of it now, but "
-                        + "\ncareer and money matters are going well and are likely to continue like this "
-                        + "\nfor a while. Of course, that depends on you and what you're willing to do to "
-                        + "\nkeep it going.", sign + " Horoscope", JOptionPane.PLAIN_MESSAGE);
-        }
+            JOptionPane.showMessageDialog(null, "Tension between you and a business partner could "
+            + "have you doubting \nyour professional future in the current situation. Don't "
+            + "\nwaste too much time worrying about it. You may not be aware of it now, but "
+            + "\ncareer and money matters are going well and are likely to continue like this "
+            + "\nfor a while. Of course, that depends on you and what you're willing to do to "
+            + "\nkeep it going.", sign + " Horoscope", JOptionPane.PLAIN_MESSAGE);
+            }
+
+            */
+
     }//GEN-LAST:event_btnHoroscopeActionPerformed
 
     private void cmbSignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSignActionPerformed
@@ -108,11 +142,11 @@ public class HoroscopeGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

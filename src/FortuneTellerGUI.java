@@ -203,6 +203,11 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
         jMenu2.setText("More");
 
         menuItemHoroscope.setText("Get Horoscope");
+        menuItemHoroscope.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemHoroscopeActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuItemHoroscope);
 
         jMenuBar1.add(jMenu2);
