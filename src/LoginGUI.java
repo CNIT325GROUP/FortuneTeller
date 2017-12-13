@@ -108,7 +108,7 @@ public class LoginGUI extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         try
         {
-            Socket socket = new Socket ("localhost", 8189);
+            Socket socket = new Socket ("localhost", 1738);
             try
             {
                 String message = txtPassword.getText();
