@@ -8,6 +8,11 @@
  *
  * @author Jaz
  */
+
+//child of category; parent class for all relationship categories
+//children: -family
+//          -friend
+//          -romance
 public class Relationship extends Category {
     //attributes
     String relationshipName;

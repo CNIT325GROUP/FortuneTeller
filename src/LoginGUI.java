@@ -15,6 +15,7 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     public LoginGUI() {
         initComponents();
+        //centers form in screen
         this.setLocationRelativeTo(null);
     }
 

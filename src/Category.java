@@ -8,6 +8,13 @@
  *
  * @author Jaz
  */
+
+//parent class for all fortune categories
+//children: -relationship
+//          -career
+//          -education
+//          -health
+//          -hobbies
 public class Category extends FortuneTeller{
     //attributes
     FortuneTeller fortuneTeller;

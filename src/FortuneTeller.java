@@ -19,22 +19,19 @@ public class FortuneTeller  {
     //attributes
     String tellerLevel;
     
-    //set and get methods
-    public void setTellerLevel (String tellerlevel) {
-        tellerLevel = tellerlevel;
-    }
-    public String getTellerLevel () {
-        return tellerLevel;
-    }
     
+    //*******************************
+    //input:    N/A
+    //output:   N/A
+    //purpose:  start authentication server to login to app
+    //*******************************
     public static void startServer()
     {
         try
         {
             ServerSocket serverSock = new ServerSocket (1738);
             System.out.println("Server Started:");
-            boolean over = false;
-            
+            boolean over = false;            
             
             //put in a loop that keeps running
             while(!over)
@@ -100,6 +97,7 @@ public class FortuneTeller  {
         mForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mForm.setVisible(true);
         
+        //start authentication server
         startServer();
         
     }

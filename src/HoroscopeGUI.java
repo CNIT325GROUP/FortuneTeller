@@ -18,6 +18,7 @@ public class HoroscopeGUI extends javax.swing.JFrame {
      */
     public HoroscopeGUI() {
         initComponents();
+        //centers form in screen
         this.setLocationRelativeTo(null);
     }
 
@@ -84,6 +85,7 @@ public class HoroscopeGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHoroscopeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoroscopeActionPerformed
+        
         String sign = cmbSign.getSelectedItem().toString(); 
         
         switch (sign) {
