@@ -20,21 +20,27 @@ import org.jsoup.select.Elements;
 public class HoroscopeGUI extends javax.swing.JFrame {
 
 
-    public static void getHoroscopeTitle() throws IOException
+    public static void getHoroscope() throws IOException
     {
         //https://www.horoscope.com/us/index.aspx
 
-        Document doc = Jsoup.connect("https://www.horoscope.com/us/index.aspx").get();
-
+        
+        String webPage = "https://www.horoscope.com/us/index.aspx";
+        /*
+        Document doc = Jsoup.connect(webPage).get();
+        
         Element content = doc.select("div.horoscope-content").first();
-
-        Elements stuff = content.getElementsByTag("p");
-
-        String text = stuff.text();
-
+        
+        String text = content.attr("");
+        
         System.out.println(text);
-
-
+        */
+        /*
+        String stuff = Jsoup.connect(webPage).get().html();
+        Document doc = Jsoup.parse(stuff);
+        Element p= doc.select("p").first();
+        String text = p.text();
+        */
     }
 
     /**
@@ -111,7 +117,7 @@ public class HoroscopeGUI extends javax.swing.JFrame {
     private void btnHoroscopeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoroscopeActionPerformed
 
         try {
-            getHoroscopeTitle();
+            getHoroscope();
         }catch(IOException ex)
         {
             Logger.getLogger(HoroscopeGUI.class.getName()).log(Level.SEVERE, null, ex);

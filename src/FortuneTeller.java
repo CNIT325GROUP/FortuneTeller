@@ -55,23 +55,19 @@ public class FortuneTeller  {
                     while(!done && in.hasNextLine())
                     {
                         String lineIn = in.nextLine();
-                        System.out.println("From Client: " + lineIn.trim());
-                        
-                        //send to client
-                        //out.println("Server Received: " + lineIn.trim());
                         
                         //to kill the server, enter "pass" from the client
                         if(lineIn.trim().equals("pass"))
                         {
                             done = true;
                             over = true;
-                            System.out.println("accepted pass");
+                            //send to client
                             out.println("correct");
                             break;
                         }
                         else {
+                            //send to client
                             out.println("wrong");
-                            System.out.println("password is wrong");
                         }
                     }//end while !done && in.hasNextLine()
                 }

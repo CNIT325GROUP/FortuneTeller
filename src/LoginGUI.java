@@ -116,7 +116,6 @@ public class LoginGUI extends javax.swing.JFrame {
             if(in.hasNextLine())
             {
                 String line = in.nextLine();
-                System.out.println("from the server: " + line);
                 
                 if(line.equals("correct"))
                 {
