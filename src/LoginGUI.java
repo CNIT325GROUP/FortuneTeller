@@ -111,24 +111,14 @@ public class LoginGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+        boolean clientConnected = false;
+        
         try
         {
             Socket socket = new Socket ("localhost", 1738);
-            try
-            {
-                String message = txtPassword.getText();
-
-                InputStream inStream = socket.getInputStream();
-                Scanner in = new Scanner (inStream);
-                OutputStream outStream = socket.getOutputStream();
-                PrintWriter out = new PrintWriter(outStream, true);
-
-                out.println(message);                
-            }
-            finally
-            {
-                socket.close();
-            }
+            clientConnected = true;
+            
         }
         
         catch(IOException ioexc)

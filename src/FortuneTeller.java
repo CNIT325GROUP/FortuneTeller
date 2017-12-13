@@ -69,7 +69,7 @@ public class FortuneTeller  {
                             break;
                         }
                         else {
-                            out.println("Wrong");
+                            out.println("wrong");
                         }
                     }//end while !done && in.hasNextLine()
                 }
