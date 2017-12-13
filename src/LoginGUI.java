@@ -23,9 +23,12 @@ import java.util.*;
 
 public class LoginGUI extends javax.swing.JFrame {
 
+    static Socket sock;
+    
+    
     /**
      * Creates new form LoginGUI
-     */
+    */
     public LoginGUI() {
         initComponents();
         //centers form in screen
@@ -98,14 +101,43 @@ public class LoginGUI extends javax.swing.JFrame {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         // TODO add your handling code here:
         
-        //***change later --> will be after the user has properly logged in
-        
-        //create FortuneTellerGUI
-        new FortuneTellerGUI().setVisible(true);
-        //destroy LoginGUI
-        this.dispose();
-        
-        
+        try
+        {
+            String message = txtPassword.getText();
+
+            InputStream inStream = sock.getInputStream();
+            Scanner in = new Scanner (inStream);
+            
+            OutputStream outStream = sock.getOutputStream();
+            PrintWriter out = new PrintWriter(outStream, true);
+
+            out.println(message);
+            
+            if(in.hasNextLine())
+            {
+                String line = in.nextLine();
+                System.out.println("from the server: " + line);
+                
+                if(line.equals("correct"))
+                {
+                    //open new window
+                    System.out.println("it works!!!");
+                    new FortuneTellerGUI().setVisible(true);
+                    //destroy LoginGUI
+                    this.dispose();
+                }
+                else
+                {
+                    System.out.println("Please try again.");
+                }
+            }
+
+            
+        }
+        catch(IOException ioexc)
+        {
+            ioexc.printStackTrace();
+        }
         
         
     }//GEN-LAST:event_btnEnterActionPerformed
@@ -116,9 +148,8 @@ public class LoginGUI extends javax.swing.JFrame {
         
         try
         {
-            Socket socket = new Socket ("localhost", 1738);
+            sock = new Socket ("localhost", 1738);
             clientConnected = true;
-            
         }
         
         catch(IOException ioexc)
@@ -130,7 +161,7 @@ public class LoginGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

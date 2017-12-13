@@ -58,7 +58,7 @@ public class FortuneTeller  {
                         System.out.println("From Client: " + lineIn.trim());
                         
                         //send to client
-                        out.println("Server Received: " + lineIn.trim());
+                        //out.println("Server Received: " + lineIn.trim());
                         
                         //to kill the server, enter "pass" from the client
                         if(lineIn.trim().equals("pass"))
@@ -66,10 +66,12 @@ public class FortuneTeller  {
                             done = true;
                             over = true;
                             System.out.println("accepted pass");
+                            out.println("correct");
                             break;
                         }
                         else {
                             out.println("wrong");
+                            System.out.println("password is wrong");
                         }
                     }//end while !done && in.hasNextLine()
                 }
