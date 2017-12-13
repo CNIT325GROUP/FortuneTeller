@@ -68,6 +68,9 @@ public class FortuneTeller  {
                             System.out.println("accepted pass");
                             break;
                         }
+                        else {
+                            //something
+                        }
                     }//end while !done && in.hasNextLine()
                 }
                 catch(Exception exc1)

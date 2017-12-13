@@ -1,3 +1,11 @@
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,6 +41,11 @@ public class LoginGUI extends javax.swing.JFrame {
         btnEnter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
@@ -91,6 +104,33 @@ public class LoginGUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        try
+        {
+            Socket socket = new Socket ("localhost", 8189);
+            try
+            {
+                String message = txtPassword.getText();
+
+                InputStream inStream = socket.getInputStream();
+                Scanner in = new Scanner (inStream);
+                OutputStream outStream = socket.getOutputStream();
+                PrintWriter out = new PrintWriter(outStream, true);
+
+                out.println(message);                
+            }
+            finally
+            {
+                socket.close();
+            }
+        }
+        
+        catch(IOException ioexc)
+        {
+            ioexc.printStackTrace();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

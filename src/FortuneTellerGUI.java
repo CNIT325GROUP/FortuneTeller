@@ -44,13 +44,32 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
     //          chosen in FortuneTellerGUI
     //*******************************
     public void addAllFortunes() {
-        family.addFortunes();
-        romance.addFortunes();
-        friend.addFortunes();
-        career.addFortunes();
-        education.addFortunes();
-        health.addFortunes();
-        hobbies.addFortunes();
+        switch (category) {
+            case "Relationships" :
+                switch (relationshipType) {
+                    case "Family" : 
+                        family.addFortunes();
+                        break;
+                    case "Romance" : 
+                        romance.addFortunes();
+                        break;
+                    case "Friends" : 
+                        friend.addFortunes();
+                        break;
+                }
+            case "Career" : 
+                career.addFortunes();
+                break;
+            case "Education" : 
+                education.addFortunes();
+                break;
+            case "Health" : 
+                health.addFortunes();
+                break;
+            case "Hobbies" : 
+                hobbies.addFortunes();
+                break;
+        }      
     }
     
     //*******************************
@@ -195,36 +214,33 @@ public class FortuneTellerGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblQuestion1)
-                            .addComponent(lblQuestion2))
-                        .addGap(211, 211, 211))
+                            .addComponent(lblQuestion2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtQuestion2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtQuestion1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblRelationshipType)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(cmbCategory, javax.swing.GroupLayout.Alignment.LEADING, 0, 115, Short.MAX_VALUE)
+                                        .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cmbRelationshipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtQuestion1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGetFortune)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblRelationshipType)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbRelationshipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtName)))
-                            .addComponent(txtQuestion2))
-                        .addGap(20, 20, 20))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGetFortune)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btnEnter)))
-                .addGap(91, 91, 91))
+                                .addGap(17, 17, 17)
+                                .addComponent(btnEnter)))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
